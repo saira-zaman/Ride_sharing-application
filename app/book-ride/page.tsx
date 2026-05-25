@@ -13,10 +13,10 @@ export default function BookRide() {
   const [selectedOffer, setSelectedOffer] = useState<string | null>(null)
 
   const mockOffers = [
-    { driverId: '1', name: 'Rajesh', rating: 4.9, fare: 240, eta: 3, vehicle: 'Creta', plate: 'DL-01-AB-1234', img: '👨' },
-    { driverId: '2', name: 'Priya', rating: 4.8, fare: 250, eta: 5, vehicle: 'XUV500', plate: 'DL-01-CD-5678', img: '👩' },
-    { driverId: '3', name: 'Amit', rating: 4.7, fare: 235, eta: 4, vehicle: 'Nexon', plate: 'DL-01-EF-9012', img: '👨' },
-    { driverId: '4', name: 'Sneha', rating: 4.9, fare: 255, eta: 6, vehicle: 'Swift', plate: 'DL-01-GH-3456', img: '👩' },
+    { driverId: '1', name: 'Ahmed Ali', rating: 4.9, fare: 450, eta: 3, vehicle: 'Honda Civic', plate: 'KHI-123', img: '👨' },
+    { driverId: '2', name: 'Fatima Khan', rating: 4.8, fare: 500, eta: 5, vehicle: 'Toyota Vitz', plate: 'KHI-456', img: '👩' },
+    { driverId: '3', name: 'Muhammad Hassan', rating: 4.7, fare: 420, eta: 4, vehicle: 'Suzuki Alto', plate: 'KHI-789', img: '👨' },
+    { driverId: '4', name: 'Zainab Malik', rating: 4.9, fare: 550, eta: 6, vehicle: 'Honda Fit', plate: 'KHI-012', img: '👩' },
   ]
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -93,26 +93,26 @@ export default function BookRide() {
           <div className="space-y-3 bg-slate-700/30 rounded-2xl p-5">
             <div className="flex justify-between items-center">
               <span className="text-slate-300">Base Fare</span>
-              <span className="text-white font-bold">₹ 50</span>
+              <span className="text-white font-bold">Rs. 200</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-300">Distance (5 km)</span>
-              <span className="text-white font-bold">₹ 150</span>
+              <span className="text-slate-300">Distance (8 km)</span>
+              <span className="text-white font-bold">Rs. 400</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-300">Surge Price</span>
-              <span className="text-white font-bold">₹ 40</span>
+              <span className="text-white font-bold">Rs. 50</span>
             </div>
             <div className="border-t border-slate-600 pt-3 flex justify-between items-center">
               <span className="text-white font-bold text-lg">Driver's Offer</span>
-              <span className="text-4xl font-black text-green-400">₹ {selectedDriverData.fare}</span>
+              <span className="text-4xl font-black text-green-400">Rs. {selectedDriverData.fare}</span>
             </div>
           </div>
 
           {/* Savings Badge */}
           <div className="bg-green-500/20 border border-green-500/50 rounded-2xl p-4 text-center">
-            <p className="text-green-400 font-bold text-lg">💰 You Save ₹ 10</p>
-            <p className="text-green-300 text-xs mt-1">Driver's offer is below estimated fare!</p>
+            <p className="text-green-400 font-bold text-lg">💰 Bachay Rs. {Math.max(0, 200 + 400 + 50 - selectedDriverData.fare)}</p>
+            <p className="text-green-300 text-xs mt-1">Driver ka offer estimated fare se kam hai!</p>
           </div>
 
           {/* Info Cards */}
@@ -193,7 +193,7 @@ export default function BookRide() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-black text-green-400">₹ {offer.fare}</div>
+                  <div className="text-3xl font-black text-green-400">Rs. {offer.fare}</div>
                   <p className="text-slate-400 text-xs">ETA {offer.eta}m</p>
                 </div>
               </div>
@@ -258,9 +258,9 @@ export default function BookRide() {
           {/* Vehicle Type Selector */}
           <div className="grid grid-cols-3 gap-3">
             {[
-              { id: 'economy', icon: '🚗', name: 'Economy', price: '₹50/km' },
-              { id: 'comfort', icon: '🚙', name: 'Comfort', price: '₹70/km' },
-              { id: 'premium', icon: '🚕', name: 'Premium', price: '₹100/km' },
+              { id: 'economy', icon: '🚗', name: 'Economy', price: 'Rs.150/km' },
+              { id: 'comfort', icon: '🚙', name: 'Comfort', price: 'Rs.200/km' },
+              { id: 'premium', icon: '🚕', name: 'Premium', price: 'Rs.300/km' },
             ].map((type) => (
               <button
                 key={type.id}
@@ -281,18 +281,18 @@ export default function BookRide() {
 
           {/* Price Input */}
           <div className="relative mt-6">
-            <label className="text-slate-400 text-xs font-semibold px-1 mb-2 block">💰 Your Offer</label>
+            <label className="text-slate-400 text-xs font-semibold px-1 mb-2 block">💰 Apni Offer</label>
             <div className="flex items-center gap-2 bg-slate-700 border-2 border-blue-500 rounded-2xl px-5 py-4">
-              <span className="text-slate-400 text-2xl font-black">₹</span>
+              <span className="text-slate-400 text-2xl font-black">Rs.</span>
               <input
                 type="number"
                 value={riderFare}
                 onChange={(e) => setRiderFare(e.target.value)}
                 className="flex-1 bg-transparent text-white text-3xl font-black outline-none"
-                placeholder="250"
+                placeholder="500"
               />
             </div>
-            <p className="text-slate-400 text-xs mt-2 px-1">💡 Drivers will bid on your offer</p>
+            <p className="text-slate-400 text-xs mt-2 px-1">💡 Drivers aapke offer par bid karengy</p>
           </div>
 
           {/* Submit Button */}

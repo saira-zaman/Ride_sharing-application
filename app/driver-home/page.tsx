@@ -11,20 +11,20 @@ export default function DriverHome() {
   const mockAvailableRides = [
     {
       id: '1',
-      pickup: 'Sector 11, Noida',
-      dropoff: 'Connaught Place, Delhi',
-      distance: 25,
-      fare: 450,
-      rider: 'Aisha Khan',
+      pickup: 'Defence, Karachi',
+      dropoff: 'Clifton Beach, Karachi',
+      distance: 15,
+      fare: 1200,
+      rider: 'Ali Hassan',
       rating: 4.8,
     },
     {
       id: '2',
-      pickup: 'Gurugram Cyber Park',
-      dropoff: 'Delhi Airport',
-      distance: 35,
-      fare: 650,
-      rider: 'Vikram Singh',
+      pickup: 'Gulshan-e-Iqbal, Karachi',
+      dropoff: 'Jinnah International Airport',
+      distance: 25,
+      fare: 2000,
+      rider: 'Aisha Malik',
       rating: 4.9,
     },
   ]
@@ -32,11 +32,11 @@ export default function DriverHome() {
   const mockActiveRides = [
     {
       id: '3',
-      pickup: 'Indirapuram',
-      dropoff: 'Dwarka',
+      pickup: 'Saddar, Karachi',
+      dropoff: 'Port Grand, Karachi',
       status: 'in-progress',
-      passenger: 'Neha Gupta',
-      fare: 380,
+      passenger: 'Muhammad Khan',
+      fare: 800,
     },
   ]
 
@@ -69,12 +69,12 @@ export default function DriverHome() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-2">
           <div className="bg-slate-800 rounded-xl p-3">
-            <div className="text-xs text-slate-400">Today</div>
-            <div className="text-xl font-black text-green-400">₹2,450</div>
+            <div className="text-xs text-slate-400">Aaj</div>
+            <div className="text-xl font-black text-green-400">Rs.8,500</div>
           </div>
           <div className="bg-slate-800 rounded-xl p-3">
             <div className="text-xs text-slate-400">Rides</div>
-            <div className="text-xl font-black text-blue-400">8</div>
+            <div className="text-xl font-black text-blue-400">12</div>
           </div>
           <div className="bg-slate-800 rounded-xl p-3">
             <div className="text-xs text-slate-400">Rating</div>
@@ -136,7 +136,7 @@ export default function DriverHome() {
                       <div className="text-slate-300 font-semibold mt-1">{ride.dropoff}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-black text-green-400">₹{ride.fare}</div>
+                      <div className="text-2xl font-black text-green-400">Rs.{ride.fare}</div>
                       <div className="text-xs text-slate-400">{ride.distance}km</div>
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export default function DriverHome() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-black text-green-400">₹{ride.fare}</div>
+                      <div className="text-xl font-black text-green-400">Rs.{ride.fare}</div>
                     </div>
                   </div>
                 </div>

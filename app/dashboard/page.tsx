@@ -27,7 +27,7 @@ export default function Dashboard() {
           
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-gray-600 text-sm font-semibold mb-2">Earnings</h3>
-            <p className="text-3xl font-bold text-success">₹0.00</p>
+            <p className="text-3xl font-bold text-success">Rs.0.00</p>
           </div>
           
           <div className="bg-white rounded-lg shadow p-6">

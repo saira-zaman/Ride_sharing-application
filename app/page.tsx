@@ -9,7 +9,7 @@ export default function Home() {
           <div className="flex items-center gap-2 md:gap-3">
             <div className="text-2xl md:text-3xl">🚗</div>
             <div className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              InDrive
+              RideEase Pakistan
             </div>
           </div>
           <div className="flex gap-2 md:gap-4">
@@ -39,14 +39,14 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-32">
           <div className="text-center space-y-6 md:space-y-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
-              Your Ride,
+              Apni Ride,
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                 {' '}
-                Your Price
+                Apni Qeemat
               </span>
             </h1>
             <p className="text-base md:text-xl text-slate-300 max-w-2xl mx-auto px-2">
-              Set your own fare and ride with verified drivers. The fairest ride-sharing platform.
+              Apni qaeemat set kare aur verified drivers ke saath ride karen. Pakistan ka sabse munasib ride-sharing platform.
             </p>
 
             <div className="flex gap-3 md:gap-6 justify-center pt-6 md:pt-8 flex-col md:flex-row">
@@ -69,16 +69,16 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
-        <h2 className="text-3xl md:text-4xl font-black text-white text-center mb-10 md:mb-16">Why Choose InDrive?</h2>
+        <h2 className="text-3xl md:text-4xl font-black text-white text-center mb-10 md:mb-16">RideEase kyun chunein?</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {[
-            { icon: '💰', title: 'You Set the Price', desc: 'Riders offer their price, drivers bid. Fair for everyone.' },
-            { icon: '⚡', title: 'Lightning Fast', desc: 'Average wait time under 5 minutes. Real-time matching.' },
-            { icon: '🛡️', title: 'Safe & Secure', desc: '5-star drivers only. Verified profiles, in-app support.' },
-            { icon: '📱', title: 'Chat in Real-Time', desc: 'Communicate with your driver before accepting.' },
-            { icon: '🗺️', title: 'Live Tracking', desc: 'Track your ride in real-time on the map.' },
-            { icon: '⭐', title: 'Transparent Ratings', desc: 'Real reviews from real users. No fake ratings.' },
+            { icon: '💰', title: 'Apni Qaeemat Lagaaye', desc: 'Riders apni qaeemat lagaate hain, drivers bid karte hain. Sabke liye منصفانہ۔' },
+            { icon: '⚡', title: 'Bilkul Tez', desc: 'اوسط انتظار 5 منٹ سے کم۔ Real-time matching.' },
+            { icon: '🛡️', title: 'محفوظ اور Secure', desc: '5-ستارہ drivers صرف۔ Verified profiles, in-app support.' },
+            { icon: '📱', title: 'Live Chat Karo', desc: 'Apne driver se baat karo ride qubool karne se pehle۔' },
+            { icon: '🗺️', title: 'Live Tracking', desc: 'Apni ride ko map par real-time track karo۔' },
+            { icon: '⭐', title: 'Saaf Ratings', desc: 'Real reviews real users se۔ Koi nakli ratings nahi۔' },
           ].map((feature, idx) => (
             <div
               key={idx}

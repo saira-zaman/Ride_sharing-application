@@ -106,7 +106,7 @@ export default function ActiveRides() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-lg">₹{ride.finalFare || ride.estimatedFare}</div>
+                      <div className="font-bold text-lg">Rs.{ride.finalFare || ride.estimatedFare}</div>
                       <div className={`text-xs font-semibold ${
                         ride.status === 'in_progress'
                           ? 'text-green-600'
@@ -166,7 +166,7 @@ export default function ActiveRides() {
                       </div>
                       <div className="flex items-center justify-between bg-blue-50 p-2 rounded">
                         <span>Fare</span>
-                        <span className="font-bold text-lg">₹{selectedRide.finalFare || selectedRide.estimatedFare}</span>
+                        <span className="font-bold text-lg">Rs.{selectedRide.finalFare || selectedRide.estimatedFare}</span>
                       </div>
                     </div>
                   </div>
