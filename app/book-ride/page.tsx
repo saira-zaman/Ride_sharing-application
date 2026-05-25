@@ -9,6 +9,7 @@ export default function BookRide() {
   const [vehicleType, setVehicleType] = useState('economy')
   const [riderFare, setRiderFare] = useState('250')
   const [showOffers, setShowOffers] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [selectedOffer, setSelectedOffer] = useState<string | null>(null)
 
   const mockOffers = [
@@ -23,6 +24,135 @@ export default function BookRide() {
     if (dropoff.trim()) {
       setShowOffers(true)
     }
+  }
+
+  const handleSelectOffer = (offerId: string) => {
+    setSelectedOffer(offerId)
+    const offer = mockOffers.find(o => o.driverId === offerId)
+    if (offer) {
+      setShowConfirmation(true)
+    }
+  }
+
+  const selectedDriverData = selectedOffer ? mockOffers.find(o => o.driverId === selectedOffer) : null
+
+  if (showConfirmation && selectedDriverData) {
+    return (
+      <div className="fixed inset-0 bg-black/50 z-50 flex items-end">
+        <div className="w-full bg-gradient-to-b from-slate-800 to-slate-900 rounded-t-3xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
+          {/* Close Button */}
+          <button
+            onClick={() => {
+              setShowConfirmation(false)
+              setSelectedOffer(null)
+              setShowOffers(false)
+            }}
+            className="absolute top-6 right-6 text-2xl text-slate-300 hover:text-white"
+          >
+            ✕
+          </button>
+
+          {/* Title */}
+          <div className="text-center">
+            <h1 className="text-3xl font-black text-white mb-2">Ride Details</h1>
+            <p className="text-slate-400">Confirm your booking</p>
+          </div>
+
+          {/* Route Summary */}
+          <div className="bg-slate-700/50 rounded-2xl p-4 space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="text-2xl">📍</div>
+              <div className="flex-1">
+                <p className="text-slate-400 text-xs">From</p>
+                <p className="text-white font-bold">{pickup}</p>
+              </div>
+            </div>
+            <div className="border-l-2 border-slate-600 ml-4 h-6"></div>
+            <div className="flex items-start gap-3">
+              <div className="text-2xl">🏁</div>
+              <div className="flex-1">
+                <p className="text-slate-400 text-xs">To</p>
+                <p className="text-white font-bold">{dropoff}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Driver Card */}
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-2 border-blue-500/30 rounded-2xl p-5">
+            <div className="flex items-start gap-4">
+              <div className="text-6xl">{selectedDriverData.img}</div>
+              <div className="flex-1">
+                <h3 className="text-xl font-black text-white">{selectedDriverData.name}</h3>
+                <p className="text-yellow-400 font-bold mb-2">⭐ {selectedDriverData.rating} • {selectedDriverData.vehicle}</p>
+                <p className="text-slate-400 text-sm">License: {selectedDriverData.plate}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Price Breakdown */}
+          <div className="space-y-3 bg-slate-700/30 rounded-2xl p-5">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-300">Base Fare</span>
+              <span className="text-white font-bold">₹ 50</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-300">Distance (5 km)</span>
+              <span className="text-white font-bold">₹ 150</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-300">Surge Price</span>
+              <span className="text-white font-bold">₹ 40</span>
+            </div>
+            <div className="border-t border-slate-600 pt-3 flex justify-between items-center">
+              <span className="text-white font-bold text-lg">Driver's Offer</span>
+              <span className="text-4xl font-black text-green-400">₹ {selectedDriverData.fare}</span>
+            </div>
+          </div>
+
+          {/* Savings Badge */}
+          <div className="bg-green-500/20 border border-green-500/50 rounded-2xl p-4 text-center">
+            <p className="text-green-400 font-bold text-lg">💰 You Save ₹ 10</p>
+            <p className="text-green-300 text-xs mt-1">Driver's offer is below estimated fare!</p>
+          </div>
+
+          {/* Info Cards */}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl mb-1">⏱️</p>
+              <p className="text-white font-bold text-sm">ETA {selectedDriverData.eta} min</p>
+              <p className="text-slate-400 text-xs">Arrival time</p>
+            </div>
+            <div className="bg-slate-700 rounded-xl p-3 text-center">
+              <p className="text-2xl mb-1">🗺️</p>
+              <p className="text-white font-bold text-sm">5 km away</p>
+              <p className="text-slate-400 text-xs">Distance</p>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="space-y-3 pt-4">
+            <button
+              onClick={() => {
+                setShowConfirmation(false)
+                alert(`✅ Ride confirmed with ${selectedDriverData.name}!`)
+              }}
+              className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-green-500/50 transition transform active:scale-95"
+            >
+              💳 Confirm Booking
+            </button>
+            <button
+              onClick={() => {
+                setShowConfirmation(false)
+                setSelectedOffer(null)
+              }}
+              className="w-full py-4 bg-slate-700 text-slate-300 font-bold text-lg rounded-2xl hover:bg-slate-600 transition"
+            >
+              Back to Drivers
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (showOffers) {
@@ -45,44 +175,41 @@ export default function BookRide() {
         {/* Offers List */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
           {mockOffers.map((offer) => (
-            <div
+            <button
               key={offer.driverId}
-              onClick={() => setSelectedOffer(offer.driverId)}
-              className={`rounded-2xl p-4 border-2 transition cursor-pointer ${
-                selectedOffer === offer.driverId
-                  ? 'border-blue-500 bg-blue-500/10'
-                  : 'border-slate-700 bg-slate-800'
-              }`}
+              onClick={() => handleSelectOffer(offer.driverId)}
+              className="w-full text-left rounded-2xl p-4 border-2 transition transform hover:scale-102 active:scale-95"
+              style={{
+                borderColor: selectedOffer === offer.driverId ? '#3b82f6' : '#334155',
+                backgroundColor: selectedOffer === offer.driverId ? 'rgba(59, 130, 246, 0.1)' : '#1e293b'
+              }}
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3 flex-1">
-                  <div className="text-4xl">{offer.img}</div>
+                  <div className="text-5xl">{offer.img}</div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-white font-bold text-lg">{offer.name}</h3>
                     <p className="text-slate-400 text-xs">⭐ {offer.rating} • {offer.vehicle}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-black text-green-400">₹{offer.fare}</div>
+                  <div className="text-3xl font-black text-green-400">₹ {offer.fare}</div>
                   <p className="text-slate-400 text-xs">ETA {offer.eta}m</p>
                 </div>
               </div>
               
               {selectedOffer === offer.driverId && (
-                <button
-                  onClick={() => alert(`✅ Ride accepted with ${offer.name}!`)}
-                  className="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl hover:shadow-lg transition"
-                >
-                  ✅ Accept & Chat
-                </button>
+                <div className="bg-blue-500/20 border border-blue-500/50 rounded-xl p-3 text-center">
+                  <p className="text-blue-300 font-bold text-sm">✓ Selected - Tap to continue</p>
+                </div>
               )}
-            </div>
+            </button>
           ))}
         </div>
 
         {/* Bottom Info */}
         <div className="bg-slate-800 border-t border-slate-700 px-4 py-4">
-          <p className="text-slate-400 text-xs text-center">💬 Message driver after booking</p>
+          <p className="text-slate-400 text-xs text-center">💬 You can message driver after selection</p>
         </div>
       </div>
     )
@@ -90,7 +217,7 @@ export default function BookRide() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex flex-col">
-              {/* Map Header */}
+      {/* Map Header */}
       <div className="relative h-40 bg-gradient-to-b from-slate-800 to-slate-700 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="text-9xl text-center leading-[160px]">🗺️</div>
@@ -155,13 +282,13 @@ export default function BookRide() {
           {/* Price Input */}
           <div className="relative mt-6">
             <label className="text-slate-400 text-xs font-semibold px-1 mb-2 block">💰 Your Offer</label>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-slate-700 border-2 border-blue-500 rounded-2xl px-5 py-4">
               <span className="text-slate-400 text-2xl font-black">₹</span>
               <input
                 type="number"
                 value={riderFare}
                 onChange={(e) => setRiderFare(e.target.value)}
-                className="flex-1 px-5 py-4 bg-slate-700 border-2 border-blue-500 text-white rounded-2xl focus:outline-none focus:border-blue-600 transition text-3xl font-black"
+                className="flex-1 bg-transparent text-white text-3xl font-black outline-none"
                 placeholder="250"
               />
             </div>
