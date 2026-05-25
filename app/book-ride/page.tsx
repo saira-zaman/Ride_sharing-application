@@ -39,7 +39,7 @@ export default function BookRide() {
   if (showConfirmation && selectedDriverData) {
     return (
       <div className="fixed inset-0 bg-black/50 z-50 flex items-end">
-        <div className="w-full bg-gradient-to-b from-slate-800 to-slate-900 rounded-t-3xl p-6 space-y-6 max-h-[90vh] overflow-y-auto">
+        <div className="w-full bg-gradient-to-b from-slate-800 to-slate-900 rounded-t-3xl p-4 sm:p-6 space-y-6 max-h-[90vh] overflow-y-auto modal-slide-up">
           {/* Close Button */}
           <button
             onClick={() => {
@@ -47,15 +47,15 @@ export default function BookRide() {
               setSelectedOffer(null)
               setShowOffers(false)
             }}
-            className="absolute top-6 right-6 text-2xl text-slate-300 hover:text-white"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-2xl text-slate-300 hover:text-white transition"
           >
             ✕
           </button>
 
           {/* Title */}
-          <div className="text-center">
-            <h1 className="text-3xl font-black text-white mb-2">Ride Details</h1>
-            <p className="text-slate-400">Confirm your booking</p>
+          <div className="text-center pt-4">
+            <h1 className="text-2xl sm:text-3xl font-black text-white mb-2">Ride Details</h1>
+            <p className="text-slate-400 text-sm">Confirm your booking</p>
           </div>
 
           {/* Route Summary */}
