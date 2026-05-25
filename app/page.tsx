@@ -2,58 +2,148 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-primary">🚗 RideShare</h1>
-          <div className="space-x-4">
-            <Link href="/login" className="text-gray-600 hover:text-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="text-2xl md:text-3xl">🚗</div>
+            <div className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+              InDrive
+            </div>
+          </div>
+          <div className="flex gap-2 md:gap-4">
+            <Link
+              href="/login"
+              className="px-3 md:px-6 py-2 text-slate-200 hover:text-white font-semibold transition text-sm md:text-base"
+            >
               Login
             </Link>
-            <Link href="/register" className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90">
+            <Link
+              href="/register"
+              className="px-3 md:px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition text-sm md:text-base"
+            >
               Sign Up
             </Link>
           </div>
         </div>
       </nav>
 
-      <section className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-5xl font-bold text-gray-900 mb-4">
-          Your Journey Starts Here
-        </h2>
-        <p className="text-xl text-gray-600 mb-8">
-          Safe, affordable, and convenient ride-sharing service available 24/7
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="text-4xl mb-4">🎯</div>
-            <h3 className="text-xl font-bold mb-2">Book in Seconds</h3>
-            <p className="text-gray-600">Quick and easy booking process</p>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="text-4xl mb-4">💰</div>
-            <h3 className="text-xl font-bold mb-2">Affordable Fares</h3>
-            <p className="text-gray-600">Transparent pricing with no hidden charges</p>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="text-4xl mb-4">🛡️</div>
-            <h3 className="text-xl font-bold mb-2">Safe & Secure</h3>
-            <p className="text-gray-600">Verified drivers and secure payment</p>
-          </div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-blue-600 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-purple-600 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="mt-12 space-x-4">
-          <Link href="/register?type=rider" className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-opacity-90 inline-block">
-            Book a Ride
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-32">
+          <div className="text-center space-y-6 md:space-y-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+              Your Ride,
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                {' '}
+                Your Price
+              </span>
+            </h1>
+            <p className="text-base md:text-xl text-slate-300 max-w-2xl mx-auto px-2">
+              Set your own fare and ride with verified drivers. The fairest ride-sharing platform.
+            </p>
+
+            <div className="flex gap-3 md:gap-6 justify-center pt-6 md:pt-8 flex-col md:flex-row">
+              <Link
+                href="/book-ride"
+                className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-bold text-base md:text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition transform hover:scale-105"
+              >
+                🛵 Book a Ride
+              </Link>
+              <Link
+                href="/driver-home"
+                className="px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-bold text-base md:text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition transform hover:scale-105"
+              >
+                🚗 Drive & Earn
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
+        <h2 className="text-3xl md:text-4xl font-black text-white text-center mb-10 md:mb-16">Why Choose InDrive?</h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          {[
+            { icon: '💰', title: 'You Set the Price', desc: 'Riders offer their price, drivers bid. Fair for everyone.' },
+            { icon: '⚡', title: 'Lightning Fast', desc: 'Average wait time under 5 minutes. Real-time matching.' },
+            { icon: '🛡️', title: 'Safe & Secure', desc: '5-star drivers only. Verified profiles, in-app support.' },
+            { icon: '📱', title: 'Chat in Real-Time', desc: 'Communicate with your driver before accepting.' },
+            { icon: '🗺️', title: 'Live Tracking', desc: 'Track your ride in real-time on the map.' },
+            { icon: '⭐', title: 'Transparent Ratings', desc: 'Real reviews from real users. No fake ratings.' },
+          ].map((feature, idx) => (
+            <div
+              key={idx}
+              className="p-6 md:p-8 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-700 hover:border-slate-600 transition hover:shadow-xl hover:shadow-slate-600/20"
+            >
+              <div className="text-4xl md:text-5xl mb-4">{feature.icon}</div>
+              <h3 className="text-lg md:text-xl font-bold text-white mb-2">{feature.title}</h3>
+              <p className="text-sm md:text-base text-slate-400">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center text-white">
+            <div>
+              <div className="text-3xl md:text-5xl font-black mb-2">5M+</div>
+              <p className="text-sm md:text-lg">Active Users</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-5xl font-black mb-2">50M+</div>
+              <p className="text-sm md:text-lg">Rides Completed</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-5xl font-black mb-2">95%</div>
+              <p className="text-sm md:text-lg">Satisfaction Rate</p>
+            </div>
+            <div>
+              <div className="text-3xl md:text-5xl font-black mb-2">24/7</div>
+              <p className="text-sm md:text-lg">Available Support</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20 text-center">
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6">Ready to Ride?</h2>
+        <p className="text-base md:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto px-2">
+          Join millions who trust InDrive for fair, safe, and affordable rides.
+        </p>
+        <div className="flex gap-3 md:gap-6 justify-center flex-col md:flex-row">
+          <Link
+            href="/book-ride"
+            className="px-6 md:px-8 py-3 md:py-4 bg-white text-slate-900 rounded-xl font-bold text-base md:text-lg hover:shadow-2xl transition transform hover:scale-105"
+          >
+            Get Started as Rider
           </Link>
-          <Link href="/register?type=driver" className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white inline-block">
-            Become a Driver
+          <Link
+            href="/driver-home"
+            className="px-6 md:px-8 py-3 md:py-4 bg-slate-800 text-white border-2 border-slate-600 rounded-xl font-bold text-base md:text-lg hover:bg-slate-700 transition"
+          >
+            Start Driving
           </Link>
         </div>
       </section>
-    </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 border-t border-slate-800 py-8 md:py-12 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto text-center text-slate-400 text-sm md:text-base">
+          <p>&copy; 2026 InDrive. Fair rides for everyone.</p>
+        </div>
+      </footer>
+    </div>
   )
 }

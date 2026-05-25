@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-export default function DriverHome() {
+export default function DriverHomeMobile() {
   const [tab, setTab] = useState<'available' | 'active' | 'earnings'>('available')
   const [isOnline, setIsOnline] = useState(false)
   const [submittingOffer, setSubmittingOffer] = useState<string | null>(null)

@@ -4,6 +4,23 @@ import Ride from '@/app/lib/models/Ride'
 import { calculateFare } from '@/app/lib/helpers'
 import { AppError, errorHandler } from '@/app/lib/errors'
 
+// Mock data for testing
+const mockRides = [
+  {
+    _id: '507f1f77bcf86cd799439011',
+    riderId: '507f1f77bcf86cd799439001',
+    pickupLocation: { address: 'Connaught Place, New Delhi', coordinates: { latitude: 28.6328, longitude: 77.1197 } },
+    dropoffLocation: { address: 'Hauz Khas, New Delhi', coordinates: { latitude: 28.5494, longitude: 77.1955 } },
+    distance: 12.5,
+    duration: 35,
+    estimatedFare: 250,
+    vehicleType: 'economy',
+    status: 'requested',
+    driverOffers: [],
+    createdAt: new Date(),
+  },
+]
+
 export async function POST(req: NextRequest) {
   try {
     await connectDB()
@@ -25,7 +42,25 @@ export async function POST(req: NextRequest) {
     // Calculate estimated fare
     const estimatedFare = calculateFare(distance, duration || 0)
 
-    // Create ride request
+    // For mock mode, return mock ride
+    if (process.env.MONGODB_URI?.includes('username:password')) {
+      const mockRide = {
+        _id: Math.random().toString(36).substr(2, 9),
+        riderId,
+        pickupLocation,
+        dropoffLocation,
+        distance,
+        duration: duration || 0,
+        estimatedFare,
+        vehicleType,
+        status: 'requested',
+        driverOffers: [],
+        createdAt: new Date(),
+      }
+      return NextResponse.json({ success: true, ride: mockRide }, { status: 201 })
+    }
+
+    // Create ride request in real DB
     const ride = await Ride.create({
       riderId,
       pickupLocation,
@@ -57,6 +92,17 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
     const riderId = searchParams.get('riderId')
     const driverId = searchParams.get('driverId')
+
+    // For mock mode, return mock rides
+    if (process.env.MONGODB_URI?.includes('username:password')) {
+      return NextResponse.json(
+        {
+          success: true,
+          rides: riderId ? mockRides.filter((r) => r.riderId === riderId) : mockRides,
+        },
+        { status: 200 }
+      )
+    }
 
     let query: any = {}
 

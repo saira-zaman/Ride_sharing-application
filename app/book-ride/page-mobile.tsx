@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function BookRide() {
+export default function BookRideMobile() {
   const [pickup, setPickup] = useState('📍 Current Location')
   const [dropoff, setDropoff] = useState('')
   const [vehicleType, setVehicleType] = useState('economy')
@@ -90,7 +90,7 @@ export default function BookRide() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex flex-col">
-              {/* Map Header */}
+      {/* Map Header */}
       <div className="relative h-40 bg-gradient-to-b from-slate-800 to-slate-700 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="text-9xl text-center leading-[160px]">🗺️</div>
