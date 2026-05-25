@@ -53,8 +53,8 @@ export default function Login() {
     <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center p-4">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-md">
@@ -63,7 +63,7 @@ export default function Login() {
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="text-6xl mb-3">🚗</div>
-            <h1 className="text-4xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">RideShare</h1>
+            <h1 className="text-4xl font-black bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent mb-2">RideShare</h1>
             <p className="text-slate-400 font-semibold">Welcome Back, Rider!</p>
           </div>
 
@@ -86,7 +86,7 @@ export default function Login() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-5 py-4 bg-slate-700 border border-slate-600 rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
+                className="w-full px-5 py-4 bg-slate-700 border border-slate-600 rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function Login() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-5 py-4 bg-slate-700 border border-slate-600 rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition"
+                className="w-full px-5 py-4 bg-slate-700 border border-slate-600 rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition"
               />
             </div>
 
@@ -108,7 +108,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-6 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-blue-500/50 disabled:opacity-50 transition transform active:scale-95"
+              className="w-full mt-6 py-4 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-emerald-500/50 disabled:opacity-50 transition transform active:scale-95"
             >
               {loading ? '⏳ Logging in...' : '✨ Login'}
             </button>
@@ -129,7 +129,7 @@ export default function Login() {
           {/* Footer */}
           <p className="text-center mt-6 text-slate-400 text-sm">
             By logging in, you agree to our{' '}
-            <span className="text-blue-400 hover:underline cursor-pointer">Terms of Service</span>
+            <span className="text-emerald-400 hover:underline cursor-pointer">Terms of Service</span>
           </p>
         </div>
 

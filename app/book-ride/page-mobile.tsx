@@ -50,7 +50,7 @@ export default function BookRideMobile() {
               onClick={() => setSelectedOffer(offer.driverId)}
               className={`rounded-2xl p-4 border-2 transition cursor-pointer ${
                 selectedOffer === offer.driverId
-                  ? 'border-blue-500 bg-blue-500/10'
+                  ? 'border-emerald-500 bg-emerald-500/10'
                   : 'border-slate-700 bg-slate-800'
               }`}
             >
@@ -112,7 +112,7 @@ export default function BookRideMobile() {
               type="text"
               value={pickup}
               onChange={(e) => setPickup(e.target.value)}
-              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-blue-500 transition placeholder-slate-500 font-semibold text-lg"
+              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-emerald-500 transition placeholder-slate-500 font-semibold text-lg"
               placeholder="📍 Pickup location"
             />
           </div>
@@ -123,7 +123,7 @@ export default function BookRideMobile() {
               type="text"
               value={dropoff}
               onChange={(e) => setDropoff(e.target.value)}
-              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-blue-500 transition placeholder-slate-500 font-semibold text-lg"
+              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-emerald-500 transition placeholder-slate-500 font-semibold text-lg"
               placeholder="🏁 Where to?"
             />
           </div>
@@ -141,7 +141,7 @@ export default function BookRideMobile() {
                 onClick={() => setVehicleType(type.id)}
                 className={`p-4 rounded-2xl border-2 transition font-bold text-center ${
                   vehicleType === type.id
-                    ? 'border-blue-500 bg-blue-500/20 text-blue-300'
+                    ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
                     : 'border-slate-600 bg-slate-700 text-slate-300'
                 }`}
               >
@@ -161,7 +161,7 @@ export default function BookRideMobile() {
                 type="number"
                 value={riderFare}
                 onChange={(e) => setRiderFare(e.target.value)}
-                className="flex-1 px-5 py-4 bg-slate-700 border-2 border-blue-500 text-white rounded-2xl focus:outline-none focus:border-blue-600 transition text-3xl font-black"
+                className="flex-1 px-5 py-4 bg-slate-700 border-2 border-emerald-500 text-white rounded-2xl focus:outline-none focus:border-emerald-600 transition text-3xl font-black"
                 placeholder="250"
               />
             </div>
@@ -172,16 +172,16 @@ export default function BookRideMobile() {
           <button
             type="submit"
             disabled={!dropoff.trim()}
-            className="w-full py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-blue-500/50 disabled:opacity-50 transition transform active:scale-95 mt-8"
+            className="w-full py-5 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-emerald-500/50 disabled:opacity-50 transition transform active:scale-95 mt-8"
           >
             🔍 Find Drivers
           </button>
         </form>
 
         {/* Tips */}
-        <div className="bg-blue-500/10 border border-blue-500/30 rounded-2xl p-4 mt-6">
-          <p className="text-blue-300 text-sm font-semibold mb-2">✨ Pro Tips:</p>
-          <ul className="text-blue-200 text-xs space-y-1">
+        <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 mt-6">
+          <p className="text-emerald-300 text-sm font-semibold mb-2">✨ Pro Tips:</p>
+          <ul className="text-emerald-200 text-xs space-y-1">
             <li>✅ Be competitive with your price</li>
             <li>✅ Chat before confirming ride</li>
             <li>✅ Drivers accept within 30 seconds</li>
@@ -195,7 +195,7 @@ export default function BookRideMobile() {
           <div className="text-2xl mb-1">🏠</div>
           <div className="text-xs">Home</div>
         </Link>
-        <button className="text-center text-blue-400">
+        <button className="text-center text-emerald-400">
           <div className="text-2xl mb-1">🛵</div>
           <div className="text-xs">Book</div>
         </button>

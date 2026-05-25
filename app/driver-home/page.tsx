@@ -74,7 +74,7 @@ export default function DriverHome() {
           </div>
           <div className="bg-slate-800 rounded-xl p-3">
             <div className="text-xs text-slate-400">Rides</div>
-            <div className="text-xl font-black text-blue-400">12</div>
+            <div className="text-xl font-black text-emerald-400">12</div>
           </div>
           <div className="bg-slate-800 rounded-xl p-3">
             <div className="text-xs text-slate-400">Rating</div>
@@ -89,7 +89,7 @@ export default function DriverHome() {
           onClick={() => setTab('available')}
           className={`flex-1 py-4 font-bold text-sm transition border-b-2 ${
             tab === 'available'
-              ? 'border-blue-500 text-blue-400'
+              ? 'border-emerald-500 text-emerald-400'
               : 'border-transparent text-slate-400'
           }`}
         >
@@ -99,7 +99,7 @@ export default function DriverHome() {
           onClick={() => setTab('active')}
           className={`flex-1 py-4 font-bold text-sm transition border-b-2 ${
             tab === 'active'
-              ? 'border-blue-500 text-blue-400'
+              ? 'border-emerald-500 text-emerald-400'
               : 'border-transparent text-slate-400'
           }`}
         >
@@ -109,7 +109,7 @@ export default function DriverHome() {
           onClick={() => setTab('earnings')}
           className={`flex-1 py-4 font-bold text-sm transition border-b-2 ${
             tab === 'earnings'
-              ? 'border-blue-500 text-blue-400'
+              ? 'border-emerald-500 text-emerald-400'
               : 'border-transparent text-slate-400'
           }`}
         >
@@ -157,7 +157,7 @@ export default function DriverHome() {
                 <button
                   onClick={() => handleSubmitOffer(ride.id)}
                   disabled={submittingOffer === ride.id || !isOnline}
-                  className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-blue-500/50 disabled:opacity-50 transition text-sm"
+                  className="w-full py-3 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-emerald-500/50 disabled:opacity-50 transition text-sm"
                 >
                   {submittingOffer === ride.id ? '⏳ Submitting...' : '💰 Submit Offer'}
                 </button>
@@ -254,7 +254,7 @@ export default function DriverHome() {
           <div className="text-2xl mb-1">🏠</div>
           <div className="text-xs">Home</div>
         </Link>
-        <button className="text-center text-blue-400">
+        <button className="text-center text-emerald-400">
           <div className="text-2xl mb-1">🚗</div>
           <div className="text-xs">Drive</div>
         </button>

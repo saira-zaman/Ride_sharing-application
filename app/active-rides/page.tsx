@@ -49,11 +49,11 @@ export default function ActiveRides() {
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/dashboard" className="text-2xl font-bold text-blue-600">
+          <Link href="/dashboard" className="text-2xl font-bold text-emerald-600">
             🚗 RideShare
           </Link>
           <div className="flex gap-4">
-            <Link href="/book-ride" className="text-blue-600 hover:underline font-semibold">
+            <Link href="/book-ride" className="text-emerald-600 hover:underline font-semibold">
               Book Ride
             </Link>
             <button
@@ -80,7 +80,7 @@ export default function ActiveRides() {
         ) : rides.length === 0 ? (
           <div className="bg-white rounded-lg shadow p-8 text-center">
             <p className="text-gray-600 mb-4">No active rides</p>
-            <Link href="/book-ride" className="text-blue-600 hover:underline font-semibold">
+            <Link href="/book-ride" className="text-emerald-600 hover:underline font-semibold">
               📍 Book a ride now
             </Link>
           </div>
@@ -94,7 +94,7 @@ export default function ActiveRides() {
                   onClick={() => setSelectedRide(ride)}
                   className={`p-4 rounded-lg cursor-pointer transition ${
                     selectedRide?._id === ride._id
-                      ? 'bg-blue-100 border-2 border-blue-500'
+                      ? 'bg-emerald-100 border-2 border-emerald-500'
                       : 'bg-white border border-gray-200 hover:shadow-lg'
                   }`}
                 >
@@ -111,7 +111,7 @@ export default function ActiveRides() {
                         ride.status === 'in_progress'
                           ? 'text-green-600'
                           : ride.status === 'accepted'
-                          ? 'text-blue-600'
+                          ? 'text-emerald-600'
                           : 'text-orange-600'
                       }`}>
                         {ride.status.toUpperCase()}
@@ -164,7 +164,7 @@ export default function ActiveRides() {
                         <span>Duration</span>
                         <span className="font-semibold">{selectedRide.duration}min</span>
                       </div>
-                      <div className="flex items-center justify-between bg-blue-50 p-2 rounded">
+                      <div className="flex items-center justify-between bg-emerald-50 p-2 rounded">
                         <span>Fare</span>
                         <span className="font-bold text-lg">Rs.{selectedRide.finalFare || selectedRide.estimatedFare}</span>
                       </div>
@@ -188,7 +188,7 @@ export default function ActiveRides() {
                   <div className="flex gap-3">
                     {selectedRide.status === 'in_progress' && (
                       <>
-                        <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-semibold">
+                        <button className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 font-semibold">
                           💬 Chat with Driver
                         </button>
                         <button

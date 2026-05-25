@@ -78,7 +78,7 @@ export default function BookRide() {
           </div>
 
           {/* Driver Card */}
-          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-2 border-blue-500/30 rounded-2xl p-5">
+          <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/10 border-2 border-emerald-500/30 rounded-2xl p-5">
             <div className="flex items-start gap-4">
               <div className="text-6xl">{selectedDriverData.img}</div>
               <div className="flex-1">
@@ -105,14 +105,14 @@ export default function BookRide() {
             </div>
             <div className="border-t border-slate-600 pt-3 flex justify-between items-center">
               <span className="text-white font-bold text-lg">Driver's Offer</span>
-              <span className="text-4xl font-black text-green-400">Rs. {selectedDriverData.fare}</span>
+              <span className="text-4xl font-black text-emerald-400">Rs. {selectedDriverData.fare}</span>
             </div>
           </div>
 
           {/* Savings Badge */}
-          <div className="bg-green-500/20 border border-green-500/50 rounded-2xl p-4 text-center">
-            <p className="text-green-400 font-bold text-lg">💰 Bachay Rs. {Math.max(0, 200 + 400 + 50 - selectedDriverData.fare)}</p>
-            <p className="text-green-300 text-xs mt-1">Driver ka offer estimated fare se kam hai!</p>
+          <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-2xl p-4 text-center">
+            <p className="text-emerald-400 font-bold text-lg">💰 Bachay Rs. {Math.max(0, 200 + 400 + 50 - selectedDriverData.fare)}</p>
+            <p className="text-emerald-300 text-xs mt-1">Driver ka offer estimated fare se kam hai!</p>
           </div>
 
           {/* Info Cards */}
@@ -180,8 +180,8 @@ export default function BookRide() {
               onClick={() => handleSelectOffer(offer.driverId)}
               className="w-full text-left rounded-2xl p-4 border-2 transition transform hover:scale-102 active:scale-95"
               style={{
-                borderColor: selectedOffer === offer.driverId ? '#3b82f6' : '#334155',
-                backgroundColor: selectedOffer === offer.driverId ? 'rgba(59, 130, 246, 0.1)' : '#1e293b'
+                borderColor: selectedOffer === offer.driverId ? '#22c55e' : '#334155',
+                backgroundColor: selectedOffer === offer.driverId ? 'rgba(34, 197, 94, 0.12)' : '#1e293b'
               }}
             >
               <div className="flex items-start justify-between mb-3">
@@ -193,14 +193,14 @@ export default function BookRide() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-black text-green-400">Rs. {offer.fare}</div>
+                  <div className="text-3xl font-black text-emerald-400">Rs. {offer.fare}</div>
                   <p className="text-slate-400 text-xs">ETA {offer.eta}m</p>
                 </div>
               </div>
               
               {selectedOffer === offer.driverId && (
-                <div className="bg-blue-500/20 border border-blue-500/50 rounded-xl p-3 text-center">
-                  <p className="text-blue-300 font-bold text-sm">✓ Selected - Tap to continue</p>
+                <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-xl p-3 text-center">
+                  <p className="text-emerald-300 font-bold text-sm">✓ Selected - Tap to continue</p>
                 </div>
               )}
             </button>
@@ -239,7 +239,7 @@ export default function BookRide() {
               type="text"
               value={pickup}
               onChange={(e) => setPickup(e.target.value)}
-              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-blue-500 transition placeholder-slate-500 font-semibold text-lg"
+              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-emerald-500 transition placeholder-slate-500 font-semibold text-lg"
               placeholder="📍 Pickup location"
             />
           </div>
@@ -250,7 +250,7 @@ export default function BookRide() {
               type="text"
               value={dropoff}
               onChange={(e) => setDropoff(e.target.value)}
-              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-blue-500 transition placeholder-slate-500 font-semibold text-lg"
+              className="w-full px-5 py-4 bg-slate-700 border-2 border-slate-600 text-white rounded-2xl focus:outline-none focus:border-emerald-500 transition placeholder-slate-500 font-semibold text-lg"
               placeholder="🏁 Where to?"
             />
           </div>
@@ -268,7 +268,7 @@ export default function BookRide() {
                 onClick={() => setVehicleType(type.id)}
                 className={`p-4 rounded-2xl border-2 transition font-bold text-center ${
                   vehicleType === type.id
-                    ? 'border-blue-500 bg-blue-500/20 text-blue-300'
+                    ? 'border-emerald-500 bg-emerald-500/20 text-emerald-300'
                     : 'border-slate-600 bg-slate-700 text-slate-300'
                 }`}
               >
@@ -282,7 +282,7 @@ export default function BookRide() {
           {/* Price Input */}
           <div className="relative mt-6">
             <label className="text-slate-400 text-xs font-semibold px-1 mb-2 block">💰 Apni Offer</label>
-            <div className="flex items-center gap-2 bg-slate-700 border-2 border-blue-500 rounded-2xl px-5 py-4">
+            <div className="flex items-center gap-2 bg-slate-700 border-2 border-emerald-500 rounded-2xl px-5 py-4">
               <span className="text-slate-400 text-2xl font-black">Rs.</span>
               <input
                 type="number"
@@ -299,16 +299,16 @@ export default function BookRide() {
           <button
             type="submit"
             disabled={!dropoff.trim()}
-            className="w-full py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-blue-500/50 disabled:opacity-50 transition transform active:scale-95 mt-8"
+            className="w-full py-5 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-black text-lg rounded-2xl hover:shadow-2xl hover:shadow-emerald-500/50 disabled:opacity-50 transition transform active:scale-95 mt-8"
           >
             🔍 Find Drivers
           </button>
         </form>
 
         {/* Tips */}
-        <div className="bg-blue-500/10 border border-blue-500/30 rounded-2xl p-4 mt-6">
-          <p className="text-blue-300 text-sm font-semibold mb-2">✨ Pro Tips:</p>
-          <ul className="text-blue-200 text-xs space-y-1">
+        <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 mt-6">
+          <p className="text-emerald-300 text-sm font-semibold mb-2">✨ Pro Tips:</p>
+          <ul className="text-emerald-200 text-xs space-y-1">
             <li>✅ Be competitive with your price</li>
             <li>✅ Chat before confirming ride</li>
             <li>✅ Drivers accept within 30 seconds</li>
@@ -322,7 +322,7 @@ export default function BookRide() {
           <div className="text-2xl mb-1">🏠</div>
           <div className="text-xs">Home</div>
         </Link>
-        <button className="text-center text-blue-400">
+        <button className="text-center text-emerald-400">
           <div className="text-2xl mb-1">🛵</div>
           <div className="text-xs">Book</div>
         </button>
