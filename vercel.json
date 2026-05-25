@@ -1,0 +1,18 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "nodeVersion": "18.x",
+  "env": [
+    "MONGODB_URI",
+    "NEXTAUTH_SECRET",
+    "NEXTAUTH_URL",
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+    "STRIPE_SECRET_KEY",
+    "NEXT_PUBLIC_MAPBOX_TOKEN",
+    "EMAIL_SERVICE",
+    "EMAIL_USER",
+    "EMAIL_PASS"
+  ]
+}
